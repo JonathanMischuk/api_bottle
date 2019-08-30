@@ -1,5 +1,9 @@
 # Bottle Messages
 
+First run command 'npm install'
+Then run command 'npm start'
+Access API at http://localhost:8000/
+
 # ENDPOINTS
 
 With interest in time, all endpoints were designed to work in the browser
@@ -14,7 +18,7 @@ With interest in time, all endpoints were designed to work in the browser
 
 ---
 
-## Setup
+<!-- ## Setup
 #### Installation
 Clone the repo and run `yarn`
 #### Starting the server
@@ -32,4 +36,4 @@ Use sqlite for storage, the package comes with an in-memory database and schema.
 
 A testing framework is included and an example. Use tests where you deem them appropriate. The descriptions are purposely vague, use your best judgment.
 
----
+--- -->
