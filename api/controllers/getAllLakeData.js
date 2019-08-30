@@ -21,7 +21,6 @@ module.exports = async (req, res) => {
 
             return retVal;
         });
-        console.log(retVal)
 
         res.json(data);
     }).catch(error => res.json(error));
