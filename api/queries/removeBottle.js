@@ -1,7 +1,6 @@
 const { db } = require('../../db');
 
-module.exports = params => {
-    const { id } = params;
+module.exports = ({ id }) => {
     const query = `DELETE FROM bottles WHERE id='${id}'`;
 
     return new Promise((resolve, reject) => {

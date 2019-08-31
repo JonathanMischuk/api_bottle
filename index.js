@@ -8,5 +8,7 @@ middleware(app);
 routes(app);
 
 const server = app.listen(process.env.PORT || 8000, () => {
-  console.log(`Listening on port ${server.address().port}!`);
+    console.log(`Listening on port ${server.address().port}!`);
 });
+
+module.exports = { app, server };

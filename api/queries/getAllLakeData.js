@@ -1,5 +1,6 @@
 const { db } = require('../../db');
 
+// not being used just yet...
 const query = `
                 SELECT name, id,
                 (
