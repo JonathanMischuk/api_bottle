@@ -31,8 +31,7 @@ module.exports = {
 			VALUES
 				("Defining yourself is like biting your own teeth", 3),
 				("Every never is now", 3),
-				("Muchos Nachos Supreme", 2),
-				("Challenge yourself, or stagnate")
+				("Muchos Nachos Supreme", 2)
 			`, () => resolve());
 	  });
 	})
