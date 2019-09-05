@@ -1,38 +1,40 @@
 const sqlite = require('sqlite3');
 
 const db = new sqlite.Database(':memory:', (err) => {
-  if (err) {
-    console.error('database error', err);
-    process.exit();
-  }
+	if (err) {
+		console.error('database error', err);
+		process.exit();
+	}
 });
 
 module.exports = {
-  db,
+  	db,
 
-  async createSchema() {
-    return new Promise(resolve => {
-      db.serialize(() => {
-        db.run('CREATE TABLE lakes (id INT PRIMARY KEY, name TEXT NOT NULL );');
-        db.run(
-          `
-            CREATE TABLE bottles (
-                                     id INT PRIMARY KEY,
-                                     message TEXT NOT NULL,
-                                     lake_id INT NOT NULL,
-                                     FOREIGN KEY (lake_id) REFERENCES lakes(id)
-            );
-        `,
-        );
+  	async createSchema() {
+		return new Promise(resolve => {
+	  		db.serialize(() => {
+				db.run(`CREATE TABLE lakes (
+					id INTEGER PRIMARY KEY AUTOINCREMENT,
+					name TEXT NOT NULL
+				);`);
 
-        db.run('INSERT INTO lakes (id, name) VALUES (1, "Baikal"), (2, "Superior"), (3, "Victoria")');
-        db.run(`
-          INSERT INTO bottles (id, message, lake_id)
-          VALUES
-              (1, "Defining yourself is like biting your own teeth", 3),
-              (2, "Every never is now", 3)
-        `, () => resolve());
-      });
-    })
+				db.run(`CREATE TABLE bottles (
+					id INTEGER PRIMARY KEY AUTOINCREMENT,
+					message TEXT NOT NULL,
+					lake_id INT NOT NULL,
+					FOREIGN KEY (lake_id) REFERENCES lakes(id)
+				);`);
+
+		db.run('INSERT INTO lakes (name) VALUES ("Baikal"), ("Superior"), ("Victoria")');
+		db.run(`
+			INSERT INTO bottles (message, lake_id)
+			VALUES
+				("Defining yourself is like biting your own teeth", 3),
+				("Every never is now", 3),
+				("Muchos Nachos Supreme", 2),
+				("Challenge yourself, or stagnate")
+			`, () => resolve());
+	  });
+	})
   }
 };

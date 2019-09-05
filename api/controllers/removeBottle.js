@@ -1,7 +1,8 @@
 const { removeBottle } = require('../queries');
+const { resFormatJSON } = require('../../utils');
 
 module.exports = (req, res) => {
     removeBottle(req.params)
-        .then(response => res.json(response))
-        .catch(err => res.json(err));
+        .then(response => resFormatJSON(res, response))
+        .catch(err => resFormatJSON(res, err));
 };

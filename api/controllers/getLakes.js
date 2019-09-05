@@ -1,7 +1,8 @@
 const { getLakes } = require('../queries');
+const { resFormatJSON } = require('../../utils');
 
 module.exports = (req, res) => {
     getLakes()
-        .then(response => res.json(response))
-        .catch(error => res.json(error));
+        .then(response => resFormatJSON(res, response))
+        .catch(error => resFormatJSON(res, error));
 };

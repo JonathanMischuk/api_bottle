@@ -7,8 +7,8 @@ afterAll(() => {
 
 test('GET / - hello-s world', done => {
     request(app)
-      .get('/')
-      .expect(200)
-      .expect('Hello World!')
-      .then(done);
+        .get('/')
+        .expect(200)
+        .expect('Hello World!')
+        .then(done);
 });

@@ -1,4 +1,5 @@
 const { getBottles, getLakes } = require('../queries');
+const { resFormatJSON } = require('../../utils');
 
 module.exports = async (req, res) => {
     const bottles = await getBottles();
@@ -22,7 +23,7 @@ module.exports = async (req, res) => {
                 return retVal;
             });
 
-            res.json(data);
+            resFormatJSON(res, data);
         })
-        .catch(error => res.json(error));
+        .catch(error => resFormatJSON(res, error));
 };

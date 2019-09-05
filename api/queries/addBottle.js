@@ -1,9 +1,9 @@
 const { db } = require('../../db');
 
-module.exports = ({ id, message, lake_id }) => {
+module.exports = ({ message, lake_id }) => {
     const query = `
-        INSERT INTO bottles (id, message, lake_id)
-        VALUES ('${id}', '${message}', '${lake_id}')
+        INSERT INTO bottles (message, lake_id)
+        VALUES ('${message}', '${lake_id}')
     `;
 
     return new Promise((resolve, reject) => {

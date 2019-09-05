@@ -14,7 +14,7 @@ With interest in time, all endpoints were designed to work in the browser, and w
 * http://localhost:8000/api/bottles/ - GET all bottles
 * http://localhost:8000/api/bottles/delete/:id/ - GET delete a bottle (param :id === bottle.id)
 * http://localhost:8000/api/bottles/add/ - GET add a new bottle - querystrings required eg.
-    http://localhost:8000/api/bottles/add/?id=1&message=any message you want&lake_id=2
+    http://localhost:8000/api/bottles/add/?message=any message you want&lake_id=2
 
 ---
 
