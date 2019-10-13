@@ -1,14 +1,19 @@
 const request = require('supertest');
 const { app, server } = require('./index');
 
-afterAll(() => {
-    server.close();
-});
+describe('API Tests', () => {
+    // afterAll(() => {
+    //     server.close();
+    // });
 
-test('GET / - hello-s world', done => {
-    request(app)
-        .get('/')
-        .expect(200)
-        .expect('Hello World!')
-        .then(done);
+    it('GET / - hello-s world', done => {
+        request(app)
+            .get('/')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', '/json/')
+            .expect(200)
+            // .expect('Hello World!')
+            .then(done)
+            .catch(console.error);
+    });
 });
